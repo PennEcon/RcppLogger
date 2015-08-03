@@ -1,0 +1,10 @@
+Package: RcppLogger
+Type: Package
+Title: Logging framework for Rcpp
+Version: 0.1
+Date: 2015-08-03
+Author: Nick Janetos
+Maintainer: Nick Janetos <njanetos@econ.upenn.edu>
+Description: Simple logging framework for Rcpp, supports logging to console or file.
+License: GPL (>= 2)
+BugReports: https://github.com/jtilly/matchingR/issues
