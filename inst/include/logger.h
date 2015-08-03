@@ -1,83 +1,87 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-enum e_verbosity { ALL, INFO, WARNINGS, QUIET };
+namespace rcpplogger {
 
-class log_message {
-    public:
-        log_message(const char *header, int importance, int level) {
-            this->importance = importance;
-            this->level = level;
-            if (importance > level) {
-                Rcpp::Rcout << header;
-            }
-        }
+  enum e_verbosity { ALL, INFO, WARNINGS, QUIET };
 
-        ~log_message() {
-            if (importance > level) {
-                Rcpp::Rcout << "\n";
-            }
-        }
+  class log_message {
+      public:
+          log_message(const char *header, int importance, int level) {
+              this->importance = importance;
+              this->level = level;
+              if (importance > level) {
+                  Rcpp::Rcout << header;
+              }
+          }
 
-        template<typename T>
-        log_message &operator<<(const T &t) {
-            if (importance > level) {
-                Rcpp::Rcout << t;
-            }
-            return *this;
-        }
+          ~log_message() {
+              if (importance > level) {
+                  Rcpp::Rcout << "\n";
+              }
+          }
 
-        log_message &operator<<(std::vector<uword> &t) {
-            if (importance > level) {
-                for (uword i = 0; i < t.size(); ++i) {
-                    Rcpp::Rcout << t[i] << ", ";
-                }
-            }
-            return *this;
-        }
+          template<typename T>
+          log_message &operator<<(const T &t) {
+              if (importance > level) {
+                  Rcpp::Rcout << t;
+              }
+              return *this;
+          }
 
-        log_message &operator<<(std::deque<uword> &t) {
-            if (importance > level) {
-                for (uword i = 0; i < t.size(); ++i) {
-                    Rcpp::Rcout << t[i] << ", ";
-                }
-            }
-            return *this;
-        }
-    private:
-        int importance, level;
-};
+          log_message &operator<<(std::vector<uword> &t) {
+              if (importance > level) {
+                  for (uword i = 0; i < t.size(); ++i) {
+                      Rcpp::Rcout << t[i] << ", ";
+                  }
+              }
+              return *this;
+          }
 
-class logger {
-    public:
-        log_message error() {
-            return log_message("[ERROR] ", 3, verbosity);
-        }
+          log_message &operator<<(std::deque<uword> &t) {
+              if (importance > level) {
+                  for (uword i = 0; i < t.size(); ++i) {
+                      Rcpp::Rcout << t[i] << ", ";
+                  }
+              }
+              return *this;
+          }
+      private:
+          int importance, level;
+  };
 
-        log_message info() {
-            return log_message("[INFO] ", 1, verbosity);
-        }
+  class logger {
+      public:
+          log_message error() {
+              return log_message("[ERROR] ", 3, verbosity);
+          }
 
-        log_message warning() {
-            return log_message("[WARNING] ", 2, verbosity);
-        }
+          log_message info() {
+              return log_message("[INFO] ", 1, verbosity);
+          }
 
-        void configure(e_verbosity verbosity) {
-            this->verbosity = verbosity;
-        }
+          log_message warning() {
+              return log_message("[WARNING] ", 2, verbosity);
+          }
 
-    private:
-        // 0: Everything
-        // 1: Error + Warnings
-        // 2: Errors
-        // 3: Quiet
-        e_verbosity verbosity;
-};
+          void configure(e_verbosity verbosity) {
+              this->verbosity = verbosity;
+          }
 
-logger l;
+      private:
+          // 0: Everything
+          // 1: Error + Warnings
+          // 2: Errors
+          // 3: Quiet
+          e_verbosity verbosity;
+  };
 
-logger &log() {
-    return l;
+  logger l;
+
+  logger &log() {
+      return l;
+  }
+
 }
 
 #endif
