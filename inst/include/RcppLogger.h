@@ -1,6 +1,9 @@
 #ifndef RCPPLOGGER_H
 #define RCPPLOGGER_H
 
+#include <iostream>
+#include <fstream>
+
 namespace RcppLogger {
 
   enum e_verbosity { ALL, INFO, WARNINGS, QUIET };
