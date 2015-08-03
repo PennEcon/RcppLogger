@@ -7,7 +7,7 @@ namespace RcppLogger {
 
   class log_message {
       public:
-          log_message(const char *header, int importance, int level) {
+          inline log_message(const char *header, int importance, int level) {
               this->importance = importance;
               this->level = level;
               if (importance > level) {
@@ -15,14 +15,14 @@ namespace RcppLogger {
               }
           }
 
-          ~log_message() {
+          inline ~log_message() {
               if (importance > level) {
                   Rcpp::Rcout << "\n";
               }
           }
 
           template<typename T>
-          log_message &operator<<(const T &t) {
+          inline log_message &operator<<(const T &t) {
               if (importance > level) {
                   Rcpp::Rcout << t;
               }
@@ -35,19 +35,19 @@ namespace RcppLogger {
 
   class logger {
       public:
-          log_message error() {
+          inline log_message error() {
               return log_message("[ERROR] ", 3, verbosity);
           }
 
-          log_message info() {
+          inline log_message info() {
               return log_message("[INFO] ", 1, verbosity);
           }
 
-          log_message warning() {
+          inline log_message warning() {
               return log_message("[WARNING] ", 2, verbosity);
           }
 
-          void configure(e_verbosity verbosity) {
+          inline void configure(e_verbosity verbosity) {
               this->verbosity = verbosity;
           }
 
@@ -61,7 +61,7 @@ namespace RcppLogger {
 
   logger l;
 
-  logger &log() {
+  inline logger &log() {
       return l;
   }
 
