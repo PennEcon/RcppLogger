@@ -28,24 +28,7 @@ namespace rcpplogger {
               }
               return *this;
           }
-
-          log_message &operator<<(std::vector<uword> &t) {
-              if (importance > level) {
-                  for (uword i = 0; i < t.size(); ++i) {
-                      Rcpp::Rcout << t[i] << ", ";
-                  }
-              }
-              return *this;
-          }
-
-          log_message &operator<<(std::deque<uword> &t) {
-              if (importance > level) {
-                  for (uword i = 0; i < t.size(); ++i) {
-                      Rcpp::Rcout << t[i] << ", ";
-                  }
-              }
-              return *this;
-          }
+          
       private:
           int importance, level;
   };
