@@ -1,7 +1,7 @@
-#ifndef LOGGER_H
-#define LOGGER_H
+#ifndef RCPPLOGGER_H
+#define RCPPLOGGER_H
 
-namespace rcpplogger {
+namespace RcppLogger {
 
   enum e_verbosity { ALL, INFO, WARNINGS, QUIET };
 
@@ -28,7 +28,7 @@ namespace rcpplogger {
               }
               return *this;
           }
-          
+
       private:
           int importance, level;
   };
