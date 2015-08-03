@@ -4,7 +4,15 @@ Simple logging framework for Rcpp.
 
 ## Usage
 
-After installing the package, include the header file `RcppLogger.h` somewhere.
+After installing the package,
+
+```
+install_package("devtools")
+library("devtools")
+install_github("njanetos/RcppLogger")
+```
+
+include the header file `RcppLogger.h` somewhere.
 
 Here is a example of how to use the logger:
 
