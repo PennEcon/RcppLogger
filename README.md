@@ -14,7 +14,13 @@ install_github("njanetos/RcppLogger")
 
 include the header file `RcppLogger.h` somewhere.
 
-Here is a example of how to use the logger:
+If you want to use RcppLogger as part of a package, put the line
+```
+LinkingTo: RcppLogger
+```
+in your `DESCRIPTION` and then include the header file in your C++ code using `#include <RcppLogger.h>`.
+
+Here is an example of how to use the logger:
 
 ```
 #include <RcppLogger.h>
