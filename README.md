@@ -17,6 +17,8 @@ include the header file `RcppLogger.h` somewhere.
 Here is a example of how to use the logger:
 
 ```
+#include <RcppLogger.h>
+using namespace RcppLogger;
 logger log;
 log.configure(ALL);
 
