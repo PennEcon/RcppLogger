@@ -38,5 +38,5 @@ log.info() << "This won't be displayed.";
 
 log.configure(WARNING);
 log.debug() << "This won't be displayed";
-log.warning() << "This will, along with errors."
+log.warning() << "This will, along with errors.";
 ```
