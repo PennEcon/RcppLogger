@@ -6,7 +6,7 @@
 
 namespace RcppLogger {
 
-  enum e_verbosity { ALL, INFO, WARNINGS, QUIET };
+  enum e_verbosity { ALL, INFO, WARNING, QUIET };
 
   class log_message {
       public:
@@ -52,6 +52,14 @@ namespace RcppLogger {
 
           void configure(e_verbosity verbosity) {
               this->verbosity = verbosity;
+          }
+          
+          void logger(e_verbosity verbosity) {
+              configure(verbosity)
+          }
+          
+          void logger() {
+              configure(ALL)
           }
 
       private:
