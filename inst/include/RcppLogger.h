@@ -64,7 +64,7 @@ namespace RcppLogger {
 
       private:
           // 0: Everything
-          // 1: Error + Warnings
+          // 1: Errors + Warnings
           // 2: Errors
           // 3: Quiet
           e_verbosity verbosity;

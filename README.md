@@ -25,8 +25,7 @@ Here is an example of how to use the logger:
 ```
 #include <RcppLogger.h>
 using namespace RcppLogger;
-logger log;
-log.configure(ALL);
+logger log(ALL);
 
 log.info() << "General information";
 log.warning() << "This is a warning.";
@@ -37,6 +36,6 @@ log.configure(QUIET);
 log.info() << "This won't be displayed.";
 
 log.configure(WARNING);
-log.debug() << "This won't be displayed";
-log.warning() << "This will, along with errors."
+log.info() << "This won't be displayed";
+log.warning() << "This will, along with errors.";
 ```
