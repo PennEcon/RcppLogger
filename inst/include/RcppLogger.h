@@ -55,11 +55,11 @@ namespace RcppLogger {
           }
           
           void logger(e_verbosity verbosity) {
-              configure(verbosity)
+              configure(verbosity);
           }
           
           void logger() {
-              configure(ALL)
+              configure(ALL);
           }
 
       private:
