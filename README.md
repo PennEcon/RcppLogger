@@ -39,3 +39,5 @@ log.configure(WARNING);
 log.info() << "This won't be displayed";
 log.warning() << "This will, along with errors.";
 ```
+
+(Obviously, be careful when calling something `log` when you're also doing `using namespace std;` or have some math library that uses the `log()` function.)
