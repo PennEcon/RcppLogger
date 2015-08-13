@@ -54,11 +54,11 @@ namespace RcppLogger {
               this->verbosity = verbosity;
           }
           
-          void logger(e_verbosity verbosity) {
+          logger(e_verbosity verbosity) {
               configure(verbosity);
           }
           
-          void logger() {
+          logger() {
               configure(ALL);
           }
 
