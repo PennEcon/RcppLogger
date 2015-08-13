@@ -37,6 +37,6 @@ log.configure(QUIET);
 log.info() << "This won't be displayed.";
 
 log.configure(WARNING);
-log.debug() << "This won't be displayed";
+log.info() << "This won't be displayed";
 log.warning() << "This will, along with errors.";
 ```
