@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <fstream>
+#include <thread>
+#include <mutex>
+#include <Rcpp.h>
 
 namespace RcppLogger {
 
@@ -53,11 +56,11 @@ namespace RcppLogger {
           void configure(e_verbosity verbosity) {
               this->verbosity = verbosity;
           }
-          
+
           logger(e_verbosity verbosity) {
               configure(verbosity);
           }
-          
+
           logger() {
               configure(ALL);
           }
