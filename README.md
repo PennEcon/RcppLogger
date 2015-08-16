@@ -6,10 +6,9 @@ Simple logging framework for Rcpp.
 
 After installing the package,
 
-```
-install_package("devtools")
-library("devtools")
-install_github("njanetos/RcppLogger")
+```{r}
+#install_package("devtools")
+devtools::install_github("njanetos/RcppLogger")
 ```
 
 include the header file `RcppLogger.h` somewhere.
@@ -22,22 +21,21 @@ in your `DESCRIPTION` and then include the header file in your C++ code using `#
 
 Here is an example of how to use the logger:
 
-```
+```{c++}
 #include <RcppLogger.h>
 using namespace RcppLogger;
-logger log(ALL);
+logger logg(ALL);
 
-log.info() << "General information";
-log.warning() << "This is a warning.";
-log.error() << "This is an error.";
+logg.info() << "General information";
+logg.warning() << "This is a warning.";
+logg.error() << "This is an error.";
 
-log.configure(QUIET);
+logg.configure(QUIET);
 
-log.info() << "This won't be displayed.";
+logg.info() << "This won't be displayed.";
 
-log.configure(WARNING);
-log.info() << "This won't be displayed";
-log.warning() << "This will, along with errors.";
+logg.configure(WARNING);
+logg.info() << "This won't be displayed";
+logg.warning() << "This will, along with errors.";
 ```
 
-(Obviously, be careful when calling something `log` when you're also doing `using namespace std;` or have some math library that uses the `log()` function.)
