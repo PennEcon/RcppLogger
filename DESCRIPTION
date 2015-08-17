@@ -7,7 +7,7 @@ Author: Nick Janetos
 Maintainer: Nick Janetos <njanetos@econ.upenn.edu>
 Description: Simple logging framework for Rcpp, supports logging to console or file.
 License: GPL (>= 2)
-BugReports: https://github.com/jtilly/matchingR/issues
+BugReports: https://github.com/njanetos/RcppLogger/issues
 Imports:
     Rcpp (>= 0.12.0)
 LinkingTo:
