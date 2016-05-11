@@ -33,9 +33,12 @@ logg.error() << "This is an error.";
 logg.configure(QUIET);
 
 logg.info() << "This won't be displayed.";
+logg.warning() << "Neither will this.";
+logg.error() << "This also won't be displayed.";
 
 logg.configure(WARNING);
 logg.info() << "This won't be displayed";
-logg.warning() << "This will, along with errors.";
+logg.warning() << "This will.";
+logg.error() << "Errors will be displayed as well.";
 ```
 
