@@ -1,6 +1,6 @@
 # RcppLogger
 
-Simple logging framework for Rcpp.
+Simple lightweight header-only logging framework for Rcpp. Not threadsafe.
 
 ## Usage
 
