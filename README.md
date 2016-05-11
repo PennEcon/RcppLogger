@@ -43,3 +43,12 @@ logg.warning() << "This will.";
 logg.error() << "Errors will be displayed as well.";
 ```
 
+Output:
+
+```{r}
+[INFO] General information
+[WARNING] This is a warning.
+[ERROR] This is an error.
+[WARNING] This will.
+[ERROR] Errors will be displayed as well.
+```
