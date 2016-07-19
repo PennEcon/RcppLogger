@@ -1,6 +1,6 @@
 # RcppLogger
 
-Simple lightweight header-only logging framework for Rcpp. Not threadsafe.
+Simple lightweight header-only logging framework for Rcpp. Lets you chain stuff together using the standard `<<` notation. Not threadsafe.
 
 ## Usage
 
@@ -27,7 +27,7 @@ using namespace RcppLogger;
 logger logg(ALL);
 
 logg.info() << "General information";
-logg.warning() << "This is a warning.";
+logg.warning() << "This is " << "a warning.";
 logg.error() << "This is an error.";
 
 logg.configure(QUIET);
